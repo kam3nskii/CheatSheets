@@ -3,5 +3,7 @@
 
 [Git](./Git)
 
+[Язык С](./C)
+
 [Shell](./Shell)
 
