@@ -1,0 +1,73 @@
+## C
+
+#### Полезные библиотеки
+```c
+#include <stdio.h> // EOF, getchar, putchar,  ... 
+#include <limits.h> // CHAR_MAX, INT_MAX, UINT_MAX, LLONG_MIN, ... 
+#include <stdint.h> // int8_t, int_16t, uint16_t, uintptr_t, ...
+#include <float.h> // FLT_EPSILON, DBL_EPSILON, LDBL_EPSILON, ...
+#include <errno.h> // errno (переменная для кода ошибки), ...
+#include <string.h> // strerror, ...
+#include <stdlib.h> // malloc, calloc, realloc, free, ...
+```
+#### Полезные флаги компиляции
+
+TODO
+
+#### Ввод и вывод 
+
+Прототипы функций:
+```c
+#include <stdio.h> 
+
+int	getchar(void);
+int putchar(int);
+int scanf(const char *format, ... );
+int printf(const char *format, ...); 
+```
+
+В коде программы символьные константы заключаются в одинарные кавычки  `'`<br> 
+Специальные символы:
+ * `'\n'` - символ перевода новой строки,
+ * `'\r'` - символ возврата каретки,
+ * `'\t'` - символ табуляции,
+ * `'\b'` - символ забоя (backspace), 
+ * `'\\'` - собственно, символ обратной косой черты,
+ * `'\''` - одинарная кавычка (апостроф),
+ * `'\"'` - двойная кавычка.
+
+#### Аргументы командой строки
+
+```c
+int main(int argc, char* argv[]) {}
+```
+
+`argc` - число аргументов
+`argv` - массивказателей на строки
+
+`argv[0]` - это имя программы, которое использовалось в командной строке запуска
+
+Передать один аргумент с пробелами можно:
+* `"a b"`
+* `'a b'`
+* `a\ b`
+
+#### Файлы
+
+```c
+FILE *f = fopen(argv[1], "r");
+if (!f) {
+    fprintf(stderr, "fopen failed: %s\n", strerror(errno));
+    exit(EXIT_FAILURE);
+}
+fclose(f);
+```
+
+#### Обработка ошибок
+
+```c
+fprintf(stderr, "!!!error!!!\n");
+// в случае ошибки должен быть ненулевой код завершения
+// константа EXIT_FAILURE равна 1
+exit(EXIT_FAILURE);
+```
