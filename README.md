@@ -1,8 +1,10 @@
 # Computer Science Cheat Sheets
 ---
 
-[Git](./Git)
+[Assembly](./Assembly)
 
-[Язык С](./C)
+[С](./C)
+
+[Git](./Git)
 
 [Shell](./Shell)
